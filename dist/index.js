@@ -292,12 +292,12 @@ exports.getDependabotEntry = void 0;
  *  |     |          |           |                --- Matches any non-whitespace character
  *  |     |          |           |                |
  */
-const TITLE_REGEX = new RegExp(/(?:Update|Bump)s? (\S+?) (?:requirement )?from (\S*) to (\S*)/);
+const TITLE_REGEX = new RegExp(/(?:Update|Bump|bump)s? (\S+?) (?:requirement )?from (\S*) to (\S*)/);
 function getDependabotEntry(event) {
     const pullRequestNumber = event.pull_request.number;
     const titleResult = TITLE_REGEX.exec(event.pull_request.title);
     if (titleResult === null) {
-        throw new Error('Unable to extract entry from pull request title!');
+        throw new Error(`Unable to extract entry from pull request title, title was ${event.pull_request.title}`);
     }
     return {
         pullRequestNumber,

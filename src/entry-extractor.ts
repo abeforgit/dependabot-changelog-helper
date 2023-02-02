@@ -23,7 +23,11 @@ export function getDependabotEntry(event: WebhookPayload): DependabotEntry {
   const pullRequestNumber: number = event.pull_request!.number
   const titleResult = TITLE_REGEX.exec(event.pull_request!.title)
   if (titleResult === null) {
-    throw new Error(`Unable to extract entry from pull request title, title was ${event.pull_request!.title}`)
+    throw new Error(
+      `Unable to extract entry from pull request title, title was ${
+        event.pull_request!.title
+      }`
+    )
   }
 
   return {
