@@ -9,7 +9,7 @@ import {WebhookPayload} from '@actions/github/lib/interfaces'
  *  |     |          |           |                |
  */
 const TITLE_REGEX = new RegExp(
-  /(?:Update|Bump)s? (\S+?) (?:requirement )?from (\S*) to (\S*)/
+  /(?:Update|Bump|bump)s? (\S+?) (?:requirement )?from (\S*) to (\S*)/
 )
 
 export interface DependabotEntry {
